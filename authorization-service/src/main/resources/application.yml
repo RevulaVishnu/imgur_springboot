@@ -1,0 +1,61 @@
+# server properties
+server:
+  port: 8081
+
+# spring properties
+spring:
+  application:
+    name: AUTH-SERVICE
+  cloud:
+    config:
+      uri: http://localhost:8085
+  main:
+    allow-bean-definition-overriding: true
+  data:
+    mongodb:
+#      url: mongodb+srv://vishnurevula:vinay1@vishnu-db.rcsucd3.mongodb.net/?retryWrites=true&w=majority
+#      url: mongodb://localhost/tweet-app
+      database: tweet-app
+      port: 27017
+      host: mongo_db
+      repositories:
+        enables: true
+
+#Eureka client
+eureka:
+  instance:
+    hostname: localhost
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+
+##Eureka client
+#eureka:
+#  instance:
+#    hostname: eureka-server
+#  client:
+#    register-with-eureka: true
+#    fetch-registry: true
+#    service-url:
+#      defaultZone: http://eureka-server:8761/eureka/
+#
+# Error Messages
+jwtUtil:
+  expiredMessage: Token has been expired
+  malformedMessage: Token is in invalid format
+  signatureMessage: Token signature is invalid
+  nullOrEmptyMessage: Token is either null or empty
+  unsupportedMessage: Claims for token is not supported
+  
+userDetails:
+  errorMessage: Incorrect Username or Password
+  badCredentialsMessage: Incorrect Username or Password
+  disabledAccountMessage: Your account has been disabled
+  lockedAccountMessage: You account has been locked, please contact your administrator for more details
+  
+logging:
+ level:
+    '[org.springframework.web]': DEBUG
+    '[com.cts.processPension]': DEBUG       
